@@ -12,7 +12,6 @@ import FirebaseAuth
 import DTGradientButton
 
 
-
 class LoginViewController: UIViewController,UITextFieldDelegate{
 
     @IBOutlet weak var textField: UITextField!
@@ -25,13 +24,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
         textField.delegate = self
        
         //ボタンの背景色
-    loginButton.setGradientBackgroundColors([UIColor(hex:"E21F70"),UIColor(hex:"FF4D2C")], direction: .toBottom, for: .normal)
-        
+        loginButton.setGradientBackgroundColors([UIColor(hex:"E21F70"),UIColor(hex:"FF4D2C")], direction: .toBottom, for: .normal)
         
     }
     
 
-    
     //キーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

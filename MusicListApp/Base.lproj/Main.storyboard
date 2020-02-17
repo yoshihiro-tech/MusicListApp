@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,9 @@
                                 <rect key="frame" x="280" y="322" width="70" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="moveToSelectCardView:" destination="bhR-tS-yDg" eventType="touchUpInside" id="CR2-C6-sqi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUc-iO-ZrK">
                                 <rect key="frame" x="67" y="449" width="240" height="43"/>
@@ -107,10 +110,41 @@
                         <viewLayoutGuide key="safeArea" id="sDf-Yc-5CM"/>
                     </view>
                     <navigationItem key="navigationItem" id="rmS-HS-hKb"/>
+                    <connections>
+                        <outlet property="favButton" destination="ZUc-iO-ZrK" id="67B-8h-HUu"/>
+                        <outlet property="listButton" destination="SUL-pW-O6N" id="HhJ-11-5Dm"/>
+                        <outlet property="searchTextField" destination="6ir-Cm-cK7" id="ngn-Aq-Wee"/>
+                        <segue destination="k0C-Hd-hhz" kind="presentation" identifier="selectVC" modalPresentationStyle="fullScreen" id="678-4a-wJq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q91-2b-Eqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576.8" y="116.74876847290641"/>
+        </scene>
+        <!--Select View Controller-->
+        <scene sceneID="wgI-dg-B6g">
+            <objects>
+                <viewController id="k0C-Hd-hhz" customClass="SelectViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pcx-Wk-dBi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vkn-uA-ngz" customClass="VerticalCardSwiper" customModule="VerticalCardSwiper">
+                                <rect key="frame" x="0.0" y="78" width="375" height="734"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KZv-AQ-7dD"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardSwiper" destination="Vkn-uA-ngz" id="rRl-OE-jqb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLD-NZ-sPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8" y="810.59113300492618"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rl5-CH-uy9">
