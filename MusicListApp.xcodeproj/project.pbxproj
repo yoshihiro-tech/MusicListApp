@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F7322106F994D0187524429 /* Pods_MusicListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED483A078CF2B5D8C63FDC72 /* Pods_MusicListApp.framework */; };
 		9604706723FA9AF000E4174E /* SaveProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706623FA9AF000E4174E /* SaveProfile.swift */; };
+		9604706923FAA92E00E4174E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706823FAA92E00E4174E /* SearchViewController.swift */; };
 		9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02023F98C1900E00835 /* AppDelegate.swift */; };
 		9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02223F98C1900E00835 /* SceneDelegate.swift */; };
 		9607F02823F98C1900E00835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9607F02623F98C1900E00835 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		4B7CF4A01A663A4554BA34C8 /* Pods-MusicListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicListApp.release.xcconfig"; path = "Target Support Files/Pods-MusicListApp/Pods-MusicListApp.release.xcconfig"; sourceTree = "<group>"; };
 		5C3390A4A4D3100AE9D549B9 /* Pods-MusicListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicListApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicListApp/Pods-MusicListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9604706623FA9AF000E4174E /* SaveProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProfile.swift; sourceTree = "<group>"; };
+		9604706823FAA92E00E4174E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9607F01D23F98C1900E00835 /* MusicListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9607F02023F98C1900E00835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9607F02223F98C1900E00835 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				9687640123F98DB600745518 /* LoginViewController.swift */,
+				9604706823FAA92E00E4174E /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9604706923FAA92E00E4174E /* SearchViewController.swift in Sources */,
 				9687640223F98DB600745518 /* LoginViewController.swift in Sources */,
 				9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */,
 				9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */,

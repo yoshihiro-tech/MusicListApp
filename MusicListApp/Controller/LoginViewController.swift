@@ -59,14 +59,23 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
         
         
         //firebaseAuthの中にIDと名前(textField.text)を入れる
-        //
+        //匿名サインイン errorでなければresultに値が入ってくる
         Auth.auth().signInAnonymously { (result, error) in
             
             if error == nil{
                 
                 guard let user = result?.user else{ return }
                 let userID = user.uid
+                
+                //アプリ内にも保持
                 UserDefaults.standard.set(userID, forKey: "userID")
+                
+                //DBの中へIDとNameを入れる
+                let saveProfile = SaveProfile(userID: userID, userName: self.textField.text!)
+                saveProfile.saveProfile()
+                //閉じる
+                self.dismiss(animated: true, completion: nil)
+                
                 
             }else{
                 

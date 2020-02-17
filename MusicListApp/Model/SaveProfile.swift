@@ -41,6 +41,7 @@ class SaveProfile {
     
     }
     
+    //外部からのIDとNameを上部でselfとし、それをkey値"userID""userName"として返す
     func toContents() -> [String:Any]{
         
         return ["userID":userID!,"userName":userName as Any]
@@ -50,7 +51,9 @@ class SaveProfile {
     
     func saveProfile(){
         
+        //toContentsメソッドでuserIDとuserNameに値を入れているものをref(DBの中のProfileのchildByAutoIdの下)にset
         ref.setValue(toContents())
+        UserDefaults.standard.set(ref.key, forKey: "autoID")
         
     }
     
