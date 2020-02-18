@@ -14,6 +14,7 @@
 		9604706E23FC11E000E4174E /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706C23FC11E000E4174E /* CardViewCell.swift */; };
 		9604706F23FC11E000E4174E /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9604706D23FC11E000E4174E /* CardViewCell.xib */; };
 		9604707123FC1EAD00E4174E /* MusicDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604707023FC1EAD00E4174E /* MusicDataModel.swift */; };
+		9604707323FC2D2000E4174E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604707223FC2D2000E4174E /* FavoriteViewController.swift */; };
 		9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02023F98C1900E00835 /* AppDelegate.swift */; };
 		9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02223F98C1900E00835 /* SceneDelegate.swift */; };
 		9607F02823F98C1900E00835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9607F02623F98C1900E00835 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		9604706C23FC11E000E4174E /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		9604706D23FC11E000E4174E /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
 		9604707023FC1EAD00E4174E /* MusicDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataModel.swift; sourceTree = "<group>"; };
+		9604707223FC2D2000E4174E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		9607F01D23F98C1900E00835 /* MusicListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9607F02023F98C1900E00835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9607F02223F98C1900E00835 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				9687640123F98DB600745518 /* LoginViewController.swift */,
 				9604706823FAA92E00E4174E /* SearchViewController.swift */,
 				9604706A23FAE22700E4174E /* SelectViewController.swift */,
+				9604707223FC2D2000E4174E /* FavoriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				9687640223F98DB600745518 /* LoginViewController.swift in Sources */,
 				9604707123FC1EAD00E4174E /* MusicDataModel.swift in Sources */,
 				9604706E23FC11E000E4174E /* CardViewCell.swift in Sources */,
+				9604707323FC2D2000E4174E /* FavoriteViewController.swift in Sources */,
 				9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */,
 				9604706B23FAE22700E4174E /* SelectViewController.swift in Sources */,
 				9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */,

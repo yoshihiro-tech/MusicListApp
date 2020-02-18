@@ -105,13 +105,25 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
             likePreviewURLArray.append(previewURLArray[indexNumber])
             likeImageStringArray.append(imageStringArray[indexNumber])
             
-            
-            
+            if likeArtistNameArray.count != 0 && likeMusicNameArray.count != 0 && likePreviewURLArray.count != 0 && likeImageStringArray.count != 0 {
+                
+                let musicDataModel = MusicDataModel(artistName: artistNameArray[indexNumber], musicName: musicNameArray[indexNumber], preViewURL: previewURLArray[indexNumber], imageString: imageStringArray[indexNumber], userID: userID, userName: userName)
+                
+                musicDataModel.save()
+                
+            }
         }
-        
-        
     }
 
+    
+    @IBAction func back(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
     
     
     
