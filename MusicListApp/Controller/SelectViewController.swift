@@ -42,6 +42,8 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
 
         cardSwiper.delegate = self
         cardSwiper.datasource = self
+        //xibファイルを呼び出し
+        cardSwiper.register(nib:UINib(nibName: "CardViewCell", bundle: nil), forCellWithReuseIdentifier: "CardViewCell")
         
         cardSwiper.reloadData()
         
@@ -49,15 +51,66 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
         
     }
     
+    //カードの数だけ
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
-        <#code#>
+        
+        return artistNameArray.count
+        
     }
     
+    //ここが呼ばれる
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
-        <#code#>
+        
+        //CardViewCellがあれば
+        if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "CardViewCell", for: index) as? CardViewCell{
+            
+            //カードの後ろもランダムで色を表示
+            verticalCardSwiperView.backgroundColor = UIColor.randomFlat()
+            view.backgroundColor = verticalCardSwiperView.backgroundColor
+            
+            //セル（カード)に配列を表示させる
+            let artistName = artistNameArray[index]
+            let musicName = musicNameArray[index]
+            cardCell.setRandomBackgroundColor()
+            cardCell.artistNameLabel.text = artistName
+            cardCell.artistNameLabel.textColor = UIColor.white
+            cardCell.musicNameLabel.text = musicName
+            cardCell.musicNameLabel.textColor = UIColor.white
+            
+            //imageViewを拾ってくる
+            cardCell.artWorkImageView.sd_setImage(with: URL(string: imageStringArray[index]), completed: nil)
+            
+            return cardCell
+            
+            
+        }
+        //CardViewCellがなくてもCardCellを返す
+        return CardCell()
+        
     }
     
     
+    //スワイプ対応のメソッド
+    func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
+        
+        //何番目がスワイプされたか検知、indexNumberに入れる
+        indexNumber = index
+        
+        //右にスワイプした時に呼ばれる箇所
+        if swipeDirection == .Right{
+            
+            //右にスワイプしたときに好きなものとして新しい配列に入れる
+            likeArtistNameArray.append(artistNameArray[indexNumber])
+            likeMusicNameArray.append(musicNameArray[indexNumber])
+            likePreviewURLArray.append(previewURLArray[indexNumber])
+            likeImageStringArray.append(imageStringArray[indexNumber])
+            
+            
+            
+        }
+        
+        
+    }
 
     
     

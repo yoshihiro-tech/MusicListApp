@@ -11,6 +11,9 @@
 		9604706723FA9AF000E4174E /* SaveProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706623FA9AF000E4174E /* SaveProfile.swift */; };
 		9604706923FAA92E00E4174E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706823FAA92E00E4174E /* SearchViewController.swift */; };
 		9604706B23FAE22700E4174E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706A23FAE22700E4174E /* SelectViewController.swift */; };
+		9604706E23FC11E000E4174E /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604706C23FC11E000E4174E /* CardViewCell.swift */; };
+		9604706F23FC11E000E4174E /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9604706D23FC11E000E4174E /* CardViewCell.xib */; };
+		9604707123FC1EAD00E4174E /* MusicDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604707023FC1EAD00E4174E /* MusicDataModel.swift */; };
 		9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02023F98C1900E00835 /* AppDelegate.swift */; };
 		9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607F02223F98C1900E00835 /* SceneDelegate.swift */; };
 		9607F02823F98C1900E00835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9607F02623F98C1900E00835 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 		9604706623FA9AF000E4174E /* SaveProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProfile.swift; sourceTree = "<group>"; };
 		9604706823FAA92E00E4174E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9604706A23FAE22700E4174E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		9604706C23FC11E000E4174E /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		9604706D23FC11E000E4174E /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
+		9604707023FC1EAD00E4174E /* MusicDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataModel.swift; sourceTree = "<group>"; };
 		9607F01D23F98C1900E00835 /* MusicListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9607F02023F98C1900E00835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9607F02223F98C1900E00835 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 		968763FF23F98D7A00745518 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9604706C23FC11E000E4174E /* CardViewCell.swift */,
+				9604706D23FC11E000E4174E /* CardViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9604706623FA9AF000E4174E /* SaveProfile.swift */,
+				9604707023FC1EAD00E4174E /* MusicDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 				9607F02D23F98C1B00E00835 /* LaunchScreen.storyboard in Resources */,
 				9607F02A23F98C1B00E00835 /* Assets.xcassets in Resources */,
 				9607F02823F98C1900E00835 /* Main.storyboard in Resources */,
+				9604706F23FC11E000E4174E /* CardViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +266,8 @@
 			files = (
 				9604706923FAA92E00E4174E /* SearchViewController.swift in Sources */,
 				9687640223F98DB600745518 /* LoginViewController.swift in Sources */,
+				9604707123FC1EAD00E4174E /* MusicDataModel.swift in Sources */,
+				9604706E23FC11E000E4174E /* CardViewCell.swift in Sources */,
 				9607F02123F98C1900E00835 /* AppDelegate.swift in Sources */,
 				9604706B23FAE22700E4174E /* SelectViewController.swift in Sources */,
 				9607F02323F98C1900E00835 /* SceneDelegate.swift in Sources */,
