@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="1576.8" y="116.74876847290641"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="Enn-PX-a13">
             <objects>
-                <viewController id="ady-ty-ck2" sceneMemberID="viewController">
+                <viewController id="ady-ty-ck2" customClass="FavoriteViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bFp-Na-5sK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,10 +180,28 @@
                         <viewLayoutGuide key="safeArea" id="VIk-wc-ZAt"/>
                     </view>
                     <navigationItem key="navigationItem" id="grV-5T-MyQ"/>
+                    <connections>
+                        <outlet property="favTableView" destination="HDZ-6G-JdJ" id="ni8-pm-7l7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWX-4d-Q0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2272.8000000000002" y="116.74876847290641"/>
+        </scene>
+        <!--List Table View Controller-->
+        <scene sceneID="cSr-ln-kWB">
+            <objects>
+                <viewController id="8yU-JA-OT1" customClass="ListTableViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cXi-rh-CxD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cr0-LV-8V7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NeD-Lq-dDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2273" y="811"/>
         </scene>
         <!--Select View Controller-->
         <scene sceneID="wgI-dg-B6g">
