@@ -90,6 +90,42 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
     }
     
     
+    //スワイプした時に配列の中からスワイプしたものを消去する(配列が崩れるのを防ぐ)
+    func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
+          indexNumber = index
+
+              if swipeDirection == .Right {
+
+                  likeArtistNameArray.append(artistNameArray[indexNumber])
+
+                  likeMusicNameArray.append(musicNameArray[indexNumber])
+
+                  likePreviewURLArray.append(previewURLArray[indexNumber])
+
+                  likeImageStringArray.append(imageStringArray[indexNumber])
+
+                  if likeArtistNameArray.count != 0 && likeMusicNameArray.count != 0 && likePreviewURLArray.count != 0 && likeImageStringArray.count != 0 {
+
+                      let musicDataModel = MusicDataModel(artistName: artistNameArray[indexNumber], musicName: musicNameArray[indexNumber], preViewURL: previewURLArray[indexNumber], imageString: imageStringArray[indexNumber], userID: userID, userName: userName)
+
+                      musicDataModel.save()
+
+                  }
+
+              }
+
+              artistNameArray.remove(at: index)
+
+              musicNameArray.remove(at: index)
+
+              previewURLArray.remove(at: index)
+
+              imageStringArray.remove(at: index)
+        
+    }
+
+    
+    
     //スワイプ対応のメソッド
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         

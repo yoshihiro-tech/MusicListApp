@@ -42,7 +42,7 @@
                 <outlet property="artistNameLabel" destination="pSJ-8b-ddk" id="4Kn-Vf-5vx"/>
                 <outlet property="musicNameLabel" destination="lJJ-Q4-UO4" id="x52-oV-26j"/>
             </connections>
-            <point key="canvasLocation" x="-94.20289855072464" y="92.410714285714278"/>
+            <point key="canvasLocation" x="-146" y="68"/>
         </tableViewCell>
     </objects>
 </document>

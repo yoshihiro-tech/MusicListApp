@@ -208,7 +208,22 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     
  
     
+    @IBAction func moveToFav(_ sender: Any) {
+        
+        let favVC = self.storyboard?.instantiateViewController(identifier: "fav") as! FavoriteViewController
+        
+        self.navigationController?.pushViewController(favVC, animated: true)
+        
+    }
     
     
+    @IBAction func moveToList(_ sender: Any) {
+        
+        let listVC = self.storyboard?.instantiateViewController(identifier: "list") as! ListTableViewController
+               
+        self.navigationController?.pushViewController(listVC, animated: true)
+        
+        
+    }
     
 }

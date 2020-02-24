@@ -63,12 +63,12 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
         return getUserIDModelArray.count
         
        }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -76,11 +76,13 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 225
         
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
@@ -90,12 +92,13 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let listDataModel = getUserIDModelArray[indexPath.row]
         let userNameLabel = cell.contentView.viewWithTag(1) as! UILabel
-        userNameLabel.text = "\(String(describing: listDataModel.userName))'s List"
+        userNameLabel.text = "\(String(describing: listDataModel.userName!))'s List"
         
         return cell
         
        }
    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //userIDと名前を渡して、渡されたConでIDからusers.idで全ての値を取得してusernameのリストとして表示する準備
@@ -110,9 +113,6 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
     }
-    
-    
-    
     
     
 

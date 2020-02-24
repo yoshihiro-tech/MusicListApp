@@ -78,11 +78,13 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
 //        self.navigationController?.navigationBar.tintColor = .white
+        self.title = "\(userName)'s Music List"
         //表示させる
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -97,7 +99,7 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         //値を取得する→usersの自分のIDの下にあるお気に入りにしたコンテンツ全て
-        favRef.child("users").child("userID").observe(.value){
+        favRef.child("users").child(userID).observe(.value){
             (snapshot) in
             
             //前回取得分が入っているので、今回分を回収する前に全てremove
@@ -116,8 +118,6 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
             HUD.hide()
             
         }
-        
-        
         
     }
     
@@ -167,13 +167,17 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return cell
         
         
-        
           }
+    
     
     @objc func playButtonTap(_ sender:PlayMusicButton){
         
         //音楽を止める
+        if player?.isPlaying == true{
+            
         player?.stop()
+            
+        }
         
         let indexNumber:Int = sender.params["value"] as! Int
         let urlString = musicDataModelArray[indexNumber].preViewURL
@@ -184,6 +188,23 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
     }
+    
+    
+    @IBAction func back(_ sender: Any) {
+        
+        //音楽を止める
+        if player?.isPlaying == true{
+            
+        player?.stop()
+            
+        }
+        
+        // < で戻る
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
     
     func downLoadMusicURL(url:URL){
         

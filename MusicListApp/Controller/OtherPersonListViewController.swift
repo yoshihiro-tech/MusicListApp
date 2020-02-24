@@ -37,21 +37,6 @@ class OtherPersonListViewController: UIViewController,UITableViewDelegate,UITabl
         //選択可能に
         favTableView.allowsSelection = true
         
-        if UserDefaults.standard.object(forKey: "userID") != nil{
-            
-            userID = UserDefaults.standard.object(forKey: "userID") as! String
-            
-        }
-        
-        
-        if UserDefaults.standard.object(forKey: "userName") != nil{
-            
-            userName = UserDefaults.standard.object(forKey: "userName") as! String
-            
-            //ナビゲーションコントローラーを継承しているので使える。title(上)に表示
-            self.title = "\(userName)'s MusicList"
-        }
-        
         favTableView.delegate = self
         favTableView.dataSource = self
         
@@ -62,6 +47,7 @@ class OtherPersonListViewController: UIViewController,UITableViewDelegate,UITabl
         super.viewWillAppear(animated)
         
 //        self.navigationController?.navigationBar.tintColor = .white
+        self.title = "\(userName)'s Music List"
         //表示させる
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -76,7 +62,7 @@ class OtherPersonListViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         //値を取得する→usersの自分のIDの下にあるお気に入りにしたコンテンツ全て
-        favRef.child("users").child("userID").observe(.value){
+        favRef.child("users").child(userID).observe(.value){
             (snapshot) in
             
             //前回取得分が入っているので、今回分を回収する前に全てremove
@@ -154,7 +140,11 @@ class OtherPersonListViewController: UIViewController,UITableViewDelegate,UITabl
     @objc func playButtonTap(_ sender:PlayMusicButton){
         
         //音楽を止める
+        if player?.isPlaying == true{
+            
         player?.stop()
+            
+        }
         
         let indexNumber:Int = sender.params["value"] as! Int
         let urlString = musicDataModelArray[indexNumber].preViewURL
@@ -165,6 +155,21 @@ class OtherPersonListViewController: UIViewController,UITableViewDelegate,UITabl
         
         
     }
+    
+    @IBAction func back(_ sender: Any) {
+        
+        //音楽を止める
+        if player?.isPlaying == true{
+            
+        player?.stop()
+            
+        }
+        
+        // < で戻る
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
     
     func downLoadMusicURL(url:URL){
         

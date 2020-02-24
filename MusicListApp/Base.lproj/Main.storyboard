@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-18" y="117"/>
         </scene>
-        <!--Search View Controller-->
+        <!-- -->
         <scene sceneID="cU7-8x-5g8">
             <objects>
                 <viewController id="bhR-tS-yDg" customClass="SearchViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,6 +96,9 @@
                                 <state key="normal" title="お気に入りを確認">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveToFav:" destination="bhR-tS-yDg" eventType="touchUpInside" id="OJ9-iF-RP2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUL-pW-O6N">
                                 <rect key="frame" x="67" y="522" width="240" height="43"/>
@@ -104,18 +107,21 @@
                                 <state key="normal" title="みんなのリストを見る">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveToList:" destination="bhR-tS-yDg" eventType="touchUpInside" id="8Ll-da-YeG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sDf-Yc-5CM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rmS-HS-hKb"/>
+                    <navigationItem key="navigationItem" title=" " id="rmS-HS-hKb"/>
                     <connections>
                         <outlet property="favButton" destination="ZUc-iO-ZrK" id="67B-8h-HUu"/>
                         <outlet property="listButton" destination="SUL-pW-O6N" id="HhJ-11-5Dm"/>
                         <outlet property="searchTextField" destination="6ir-Cm-cK7" id="ngn-Aq-Wee"/>
                         <segue destination="k0C-Hd-hhz" kind="presentation" identifier="selectVC" modalPresentationStyle="fullScreen" id="678-4a-wJq"/>
-                        <segue destination="ady-ty-ck2" kind="show" identifier="fav" id="CwG-z4-s9M"/>
+                        <segue destination="ady-ty-ck2" kind="show" identifier="" id="CwG-z4-s9M"/>
                         <segue destination="8yU-JA-OT1" kind="show" id="i1P-JB-SA2"/>
                     </connections>
                 </viewController>
@@ -126,7 +132,7 @@
         <!--Favorite View Controller-->
         <scene sceneID="Enn-PX-a13">
             <objects>
-                <viewController id="ady-ty-ck2" customClass="FavoriteViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="fav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ady-ty-ck2" customClass="FavoriteViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bFp-Na-5sK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +151,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="143" id="iQA-Io-dGU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="143" id="iQA-Io-dGU">
                                         <rect key="frame" x="0.0" y="28" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iQA-Io-dGU" id="zGz-Wr-arF">
@@ -156,15 +162,15 @@
                                                     <rect key="frame" x="15" y="7" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-XQ-Qlv">
-                                                    <rect key="frame" x="151" y="11" width="203" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-XQ-Qlv">
+                                                    <rect key="frame" x="151" y="11" width="168" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFy-x8-cf5">
-                                                    <rect key="frame" x="151" y="72" width="203" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFy-x8-cf5">
+                                                    <rect key="frame" x="151" y="72" width="168" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,7 +186,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="VIk-wc-ZAt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="grV-5T-MyQ"/>
+                    <navigationItem key="navigationItem" id="grV-5T-MyQ">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="zVc-5k-hOB">
+                            <connections>
+                                <action selector="back:" destination="ady-ty-ck2" id="PnU-RT-QcP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favTableView" destination="HDZ-6G-JdJ" id="ni8-pm-7l7"/>
                     </connections>
@@ -192,7 +204,7 @@
         <!--List Table View Controller-->
         <scene sceneID="cSr-ln-kWB">
             <objects>
-                <viewController id="8yU-JA-OT1" customClass="ListTableViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="list" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8yU-JA-OT1" customClass="ListTableViewController" customModule="MusicListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cXi-rh-CxD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,7 +309,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="K3D-uZ-H6d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eKy-Jl-KWe"/>
+                    <navigationItem key="navigationItem" id="eKy-Jl-KWe">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="4eA-jP-PzK">
+                            <connections>
+                                <action selector="back:" destination="xtY-kr-DHT" id="ztF-6Y-uko"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favTableView" destination="qhm-q4-coL" id="wJI-fD-DE9"/>
                     </connections>
@@ -318,6 +336,14 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="734"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="sideInset">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0am-6N-4Un">
                                 <rect key="frame" x="16" y="32" width="74" height="38"/>
