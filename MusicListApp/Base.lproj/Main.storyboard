@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4i4-vc-gCw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4i4-vc-gCw">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,7 +115,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sDf-Yc-5CM"/>
                     </view>
-                    <navigationItem key="navigationItem" title=" " id="rmS-HS-hKb"/>
+                    <navigationItem key="navigationItem" title=" " id="rmS-HS-hKb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="6nF-PT-fB7"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="favButton" destination="ZUc-iO-ZrK" id="67B-8h-HUu"/>
                         <outlet property="listButton" destination="SUL-pW-O6N" id="HhJ-11-5Dm"/>
@@ -199,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWX-4d-Q0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2272.8000000000002" y="116.74876847290641"/>
+            <point key="canvasLocation" x="2374" y="117"/>
         </scene>
         <!--List Table View Controller-->
         <scene sceneID="cSr-ln-kWB">

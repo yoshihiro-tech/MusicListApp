@@ -7,8 +7,11 @@
 //
 
 import UIKit
+//tinderのようなライブラリ
 import VerticalCardSwiper
+//画像のURLからimageViewへ表示するため
 import SDWebImage
+//インディケーター綺麗に作成
 import PKHUD
 import Firebase
 import ChameleonFramework
@@ -16,8 +19,6 @@ import ChameleonFramework
 
 class SelectViewController: UIViewController,VerticalCardSwiperDelegate,VerticalCardSwiperDatasource {
     
-    
-
     //受け取り用の配列(全て入ってくる)
     var artistNameArray = [String]()
     var musicNameArray = [String]()
@@ -28,7 +29,7 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
     var userID = String()
     var userName = String()
     
-    //右にスワイプ時に好きなものを入れる配列
+    //右にスワイプ時に好きなものを入れる配列（選別後）
     var likeArtistNameArray = [String]()
     var likeMusicNameArray = [String]()
     var likePreviewURLArray = [String]()
@@ -36,6 +37,7 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
     var likeArtistViewUrlArray = [String]()
     
     @IBOutlet weak var cardSwiper: VerticalCardSwiper!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +49,8 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
         
         cardSwiper.reloadData()
         
-        
-        
     }
+    
     
     //カードの数だけ
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
@@ -82,7 +83,6 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
             
             return cardCell
             
-            
         }
         //CardViewCellがなくてもCardCellを返す
         return CardCell()
@@ -97,11 +97,8 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
               if swipeDirection == .Right {
 
                   likeArtistNameArray.append(artistNameArray[indexNumber])
-
                   likeMusicNameArray.append(musicNameArray[indexNumber])
-
                   likePreviewURLArray.append(previewURLArray[indexNumber])
-
                   likeImageStringArray.append(imageStringArray[indexNumber])
 
                   if likeArtistNameArray.count != 0 && likeMusicNameArray.count != 0 && likePreviewURLArray.count != 0 && likeImageStringArray.count != 0 {
@@ -115,11 +112,8 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
               }
 
               artistNameArray.remove(at: index)
-
               musicNameArray.remove(at: index)
-
               previewURLArray.remove(at: index)
-
               imageStringArray.remove(at: index)
         
     }
@@ -141,6 +135,7 @@ class SelectViewController: UIViewController,VerticalCardSwiperDelegate,Vertical
             likePreviewURLArray.append(previewURLArray[indexNumber])
             likeImageStringArray.append(imageStringArray[indexNumber])
             
+            //上記配列が0以外の場合DBへ入れる
             if likeArtistNameArray.count != 0 && likeMusicNameArray.count != 0 && likePreviewURLArray.count != 0 && likeImageStringArray.count != 0 {
                 
                 let musicDataModel = MusicDataModel(artistName: artistNameArray[indexNumber], musicName: musicNameArray[indexNumber], preViewURL: previewURLArray[indexNumber], imageString: imageStringArray[indexNumber], userID: userID, userName: userName)

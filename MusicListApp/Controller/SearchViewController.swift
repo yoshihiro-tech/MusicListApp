@@ -8,11 +8,14 @@
 
 import UIKit
 import PKHUD
+//通信
 import Alamofire
+//Json解析
 import SwiftyJSON
 import DTGradientButton
 import FirebaseAuth
 import Firebase
+//色
 import ChameleonFramework
 
 
@@ -71,7 +74,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     
 
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         //ナビゲーションバーの色設定
@@ -84,9 +86,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     
     //Returnキーでキーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        //Searchを行う
-        
         
         textField.resignFirstResponder()
         return true
@@ -104,7 +103,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func moveToSelectCardView(_ sender: Any) {
         
-        //パースを行う
+        //パースを行う(Json解析）
         startParse(keyword:searchTextField.text!)
         
     }
@@ -138,7 +137,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     
     
     func startParse(keyword:String){
-        
+        //インディケーターを回す
         HUD.show(.progress)
         
         //検索かけるたびに配列に値が残るのを防ぐために初期化する
@@ -149,7 +148,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         
         let urlString = "https://itunes.apple.com/search?term=\(keyword)&country=jp"
         
-        //keywordが日本語で入ってくるのでエンコードする
+        //keyword(検索ワード)が日本語で入ってくるのでエンコードする
         let encodeURLString:String = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         //Alamofireで通信し、JSONが返ってきたらresponseに入る
@@ -192,7 +191,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
                     }
                     
                 }
-                
                 //HUD終了
                 HUD.hide()
                 
@@ -201,9 +199,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
                 print(error)
                 
             }
-            
         }
-        
     }
     
  
@@ -213,7 +209,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         let favVC = self.storyboard?.instantiateViewController(identifier: "fav") as! FavoriteViewController
         
         self.navigationController?.pushViewController(favVC, animated: true)
-        
     }
     
     
@@ -222,8 +217,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         let listVC = self.storyboard?.instantiateViewController(identifier: "list") as! ListTableViewController
                
         self.navigationController?.pushViewController(listVC, animated: true)
-        
-        
     }
+    
     
 }

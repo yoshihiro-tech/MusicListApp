@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SDWebImage
+//音
 import AVFoundation
 import PKHUD
 
@@ -30,13 +31,11 @@ class PlayMusicButton:UIButton{
         super.init(coder:aDecoder)
         
     }
-    
 }
 
 
 
 class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,URLSessionDownloadDelegate {
-    
     
     @IBOutlet weak var favTableView: UITableView!
     
@@ -61,14 +60,12 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if UserDefaults.standard.object(forKey: "userID") != nil{
             
             userID = UserDefaults.standard.object(forKey: "userID") as! String
-            
         }
         
         
         if UserDefaults.standard.object(forKey: "userName") != nil{
             
             userName = UserDefaults.standard.object(forKey: "userName") as! String
-            
             //ナビゲーションコントローラーを継承しているので使える。title(上)に表示
             self.title = "\(userName)'s MusicList"
         }
@@ -91,12 +88,10 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
         
         //インディケータを回す
         HUD.show(.progress)
-        
         
         //値を取得する→usersの自分のIDの下にあるお気に入りにしたコンテンツ全て
         favRef.child("users").child(userID).observe(.value){
@@ -107,37 +102,31 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             for child in snapshot.children{
                 
-                
                 let childSnapshot = child as! DataSnapshot
                 let musicData = MusicDataModel(snapshot: childSnapshot)
                 self.musicDataModelArray.insert(musicData, at: 0)
                 self.favTableView.reloadData()
-                
             }
             
             HUD.hide()
             
         }
-        
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return musicDataModelArray.count
-        
           }
       
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 255
-        
     }
     
     
@@ -163,16 +152,13 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         playButton.params["value"] = indexPath.row
         cell.accessoryView = playButton
         
-        
         return cell
-        
         
           }
     
     
     @objc func playButtonTap(_ sender:PlayMusicButton){
-        
-        //音楽を止める
+        //(再生されている可能性があるのでその音楽を)音楽を止める
         if player?.isPlaying == true{
             
         player?.stop()
@@ -186,22 +172,18 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //ダウンロード
         downLoadMusicURL(url: url!)
         
-        
     }
     
     
     @IBAction func back(_ sender: Any) {
-        
         //音楽を止める
         if player?.isPlaying == true{
             
         player?.stop()
             
         }
-        
         // < で戻る
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     
@@ -217,14 +199,12 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         })
         
         downloadTask.resume()
-        
     }
     
     
     func play(url:URL){
         
         do {
-           
             self.player = try AVAudioPlayer(contentsOf: url)
             player?.prepareToPlay()
             player?.volume = 1.0
@@ -233,10 +213,9 @@ class FavoriteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         } catch let error as NSError{
             
             print(error.localizedDescription)
-            
         }
-        
     }
+    
     
     //ダウンロードが終わった時に呼ばれる
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {

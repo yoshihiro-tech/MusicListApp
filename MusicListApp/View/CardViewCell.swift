@@ -10,7 +10,6 @@ import UIKit
 import VerticalCardSwiper
 
 
-
 class CardViewCell: CardCell {
 
     

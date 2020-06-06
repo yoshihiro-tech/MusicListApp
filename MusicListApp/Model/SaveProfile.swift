@@ -23,7 +23,7 @@ class SaveProfile {
         self.userID = userID
         self.userName = userName
         
-        //ログイン時に拾えるuidを先頭につけて送信する。受信する時もuidから引っ張ってくる。
+        //ログイン時に拾えるuidを先頭につけて送信する。refが生成される。受信する時もuidから引っ張ってくる。
         
         ref = Database.database().reference().child("profile").childByAutoId()
         
@@ -56,9 +56,5 @@ class SaveProfile {
         UserDefaults.standard.set(ref.key, forKey: "autoID")
         
     }
-    
-    
-    
-    
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+//ボタンの背景を綺麗に作成
 import DTGradientButton
 
 
@@ -29,9 +30,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
     }
     
 
-    //キーボードを閉じる
+    //リターンキーが押された時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+    //キーボードを閉じる
         textField.resignFirstResponder()
         
         return true
@@ -40,23 +41,19 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
     
     
     @IBAction func login(_ sender: Any) {
-        
-        //textFieldの値が空でない場合、textFieldの値をアプリ内に保存
-        //空ならば振動させる
+        //textFieldの値が空でない場合、
         if textField.text?.isEmpty != true{
-            
+            //textFieldの値をアプリ内に保存
             UserDefaults.standard.set(textField.text, forKey: "userName")
             
         }else{
-            
+            //空ならば振動させる
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
             
         }
         
-        
-        //firebaseAuthの中にIDと名前(textField.text)を入れる
-        //匿名サインイン errorでなければresultに値が入ってくる
+        //匿名サインイン メソッドがerrorでなければresultに値が入ってくる(Authentication)。ただDBへは入っていない。
         Auth.auth().signInAnonymously { (result, error) in
             
             if error == nil{
@@ -67,7 +64,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
                 //アプリ内にも保持
                 UserDefaults.standard.set(userID, forKey: "userID")
                 
-                //DBの中へIDとNameを入れる
+                //DBの中へIDとNameを入れる(Model作成)
                 let saveProfile = SaveProfile(userID: userID, userName: self.textField.text!)
                 saveProfile.saveProfile()
                 //閉じる
@@ -81,13 +78,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
             }
         }
         
-        
-        
     }
-    
-    
-    
-    
-    
 
 }

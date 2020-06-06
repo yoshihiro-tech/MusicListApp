@@ -26,12 +26,10 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
 
         tableView.delegate = self
         tableView.dataSource = self
-       
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -43,7 +41,6 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         HUD.show(.success)
         //コンテンツを取得する
-        
         listRef.child("profile").observe(.value) { (snapshot) in
             
             HUD.hide()
@@ -55,32 +52,26 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
                 let listData = GetUserIDModel(snapshot: childSnapshot)
                 self.getUserIDModelArray.insert(listData, at: 0)
                 self.tableView.reloadData()
-                
             }
         }
-        
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
         return getUserIDModelArray.count
-        
        }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
-        
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 225
-        
     }
     
     
@@ -101,14 +92,14 @@ class ListTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //userIDと名前を渡して、渡されたConでIDからusers.idで全ての値を取得してusernameのリストとして表示する準備
+        //userIDと名前を渡して、渡されたControllerでIDからusers.idで全ての値を取得してusernameのリストとして表示する
         let otherVC = self.storyboard?.instantiateViewController(identifier: "otherList") as! OtherPersonListViewController
         
         //選択された配列に入っている値を入れる
         let listDataModel = getUserIDModelArray[indexPath.row]
         otherVC.userName = listDataModel.userName
         otherVC.userID = listDataModel.userID
-        
+        //画面遷移
         self.navigationController?.pushViewController(otherVC, animated: true)
         
         
